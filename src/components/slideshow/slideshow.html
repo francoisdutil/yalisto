@@ -1,0 +1,29 @@
+<!-- Section SlideShow - Show featured items -->
+<section ng-controller="SlideShowCtrl" style="height: 100%;">
+
+  <div class="row section-">
+    <div class="col-xs-12 text-center">
+
+      <flex-slider
+      flex-slide="s in slideshow.slides"
+      animation="fade"
+      start="slideshow.start($slider)"
+      before="slideshow.before()"
+      after="slideshow.after()"
+      end="slideshow.end()">
+      <li style="background-image: url({{s}}); height: 400px; background-position: right; background-origin: content-box;background-repeat: no-repeat; background-size: 100% auto; overflow-y: hidden;">
+        <span>
+          <h2>Description of the picture</h2>
+        </span>
+      </li>
+    </flex-slider>
+
+    <div class="hidden" style="opacity: .3;">
+      <p>Callbacks:</p>
+      <ul>
+        <li ng-repeat="l in slideshow.log track by l.id">{{l.message}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>

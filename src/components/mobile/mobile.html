@@ -1,0 +1,47 @@
+<div ng-controller="MobileCtrl">
+  <div class="row section-mobile">
+    <div class="text-center col-xs-12">
+      <div class="col-xs-12 text-center">
+        <h1 style="font-size: 4rem; color: #444;"><span translate="section-mobile.slogan"></span></h1>
+      </div>
+      <md-toolbar class="hidden-xs" md-theme="blue-grey">
+        <div class="md-toolbar-tools">
+          <i style="font-size: 2.4em" class="mdi-hardware-phone-android"></i>
+          <md-button aria-label="Mobile" href="#section">
+            Mobile
+          </md-button>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+
+        </div>
+      </md-toolbar>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h1 class="visible-xs"><span translate="section-mobile.title"></span></h1>
+          <p><img style="width: 100%; height: 100%;" src="/assets/images/bg-mobile.png" /></p>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin: auto; padding-top: 20px; width:100%;">
+
+        <div class="col-sm-6 col-md-4" ng-repeat="myMobile in myMobiles">
+          <br>
+          <div style="height: 230px;" class="thumbnail">
+            <img class="pull-right" ng-src="assets/images/{{myMobile.logo}}" alt="{{myMobile.title}}">
+            <div class="caption">
+              <h4>{{myMobile.title}}</h4>
+              <p>{{myMobile.description}}</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-10 col-xs-offset-1">
+                <em><p class="text-right"><a ng-href="{{myMobile.url}}">Find Out More</a></p></em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

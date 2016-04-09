@@ -1,0 +1,57 @@
+
+<div style="padding:0 0 0 0; margin:0;" id="section-focus" class="section-focus">
+  <md-toolbar
+    style="border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: solid thin #C51623;"
+    md-theme="{{myFocus.material}}"
+    class="bottom-shadow">
+    <h1 style="color:#C51623; padding-top:0; margin-top:10px;" class="text-center">
+      <span translate="{{myFocus.header}}"></span>
+    </h1>
+  </md-toolbar>
+
+  <div style="padding:0;">
+    <md-content style="overflow-x: hidden; background: transparent; height: 480px;" scroll-shrink="true">
+      <div ng-controller="FocusCtrl">
+        <div style="height: 305px">
+          <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+              <img ng-src="{{slide.image}}" style="margin:auto;">
+              <div class="carousel-caption">
+                <h4>Slide {{$index}}</h4>
+                <p>{{slide.text}}</p>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      </div>
+      <md-content>
+        <md-card>
+        <img src="/assets/images/washedout.png" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+        <h2>Paracosm</h2>
+        <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+        </p>
+        </md-card>
+        <md-card>
+        <img src="/assets/images/washedout.png" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+        <h2>Paracosm</h2>
+        <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+        </p>
+        </md-card>
+        </md-content>
+      <h4>
+        We are passionate about creating PERSONAL and PROFESSIONAL websites for companies SMALL and LARGE. It is our mission to create ELEGANT and MODERN tools for your success.
+      </h4>
+
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button aria-label="Close Dialog" style="margin-right: 20px;" class="ghost-button-border-color md-raised" ng-click="closeThisDialog('button')">
+        <span style="color:white;" translate="global.action.close"></span>
+      </md-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+
+<div style="padding:0 0 0 0; margin:0;" id="section-services" class="section-services">
+  <md-toolbar
+    style="border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: solid thin #FF9800;"
+    md-theme="md-blue"
+    class="bottom-shadow">
+    <h1 style="color:#000; padding-top:0; margin-top:10px;" class="text-center">
+      <span translate="{{service.name}}"></span>
+    </h1>
+    <h2 style="color:#C51623; padding-top:0; margin:10px;" class="text-center">
+      <span translate="{{service.description}}"></span>
+    </h2>
+  </md-toolbar>
+
+  <div style="padding:0;">
+    <md-content style="overflow-x: hidden; background: transparent; height: 480px;" scroll-shrink="true">
+      <div ng-controller="ServicesCtrl">
+        <div style="height: 305px">
+          <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides1" active="slide.active">
+              <img ng-src="/assets/images/services/{{service.id}}{{slide.image}}" style="margin:auto;">
+              <div class="carousel-caption">
+                <h4><span translate="section-services.services.{{service.id}}.title{{$index + 1}}"></span></h4>
+                <p><span translate="section-services.services.{{service.id}}.caption{{$index + 1}}"></span></p>
+                <a nf-if="service.url.length">{{service.url}}</a>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      </div>
+      <md-content>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}1.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title1"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para1"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}2.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title2"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para2"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}3.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title3"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para3"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}4.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title4"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para4"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}5.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title5"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para4"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}6.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title6"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para6"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}7.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title7"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para7"></span></p>
+        </md-card>
+        <md-card>
+          <img style="width:100px" src="/assets/images/services/{{service.id}}8.jpg" class="md-card-image" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+          <h2><span translate="section-services.services.{{service.id}}.title8"></span></h2>
+          <p><span translate="section-services.services.{{service.id}}.para8"></span></p>
+        </md-card>
+      </md-content>
+
+      <p class="text-center"><ngcart-addtocart id="{{ service.id }}" name="{{ service.name }}" price="{{ service.price }}" data="service"><span translate="global.action.addToWishlist"></span></ngcart-addtocart></p>
+
+      <em><h4 class="text-center" style="margin:10px;">
+        <span translate="global.label.mission"></span>
+      </h4></em>
+
+
+
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button aria-label="Close Dialog" style="margin-right: 20px;" class="ghost-button-border-color md-raised md-primary" ng-click="closeThisDialog('button')">
+        <span style="color:white;" translate="global.action.close"></span>
+      </md-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<section ng-controller="FocusCtrl">
+  <div class="section-focus">
+    <div class="text-center">
+
+      <md-toolbar md-theme="red">
+        <div class="md-toolbar-tools" style="margin: 10px 0 -20px 0; padding:0; height: 70px;">
+          <i style="opacity: .75; font-size: 3.4em" class="retro mdi-device-gps-fixed">&nbsp;<span translate="section-focus.title"></span></i>
+        </div>
+        <h1 class="text-center" style="font-size: 4rem; color: white;"></h1>
+      </md-toolbar>
+
+      <div class="row" style="margin: 0; width: 100%;">
+        <h1 style="padding:20px 0;" class="text-center col-sm-10 col-sm-offset-1"><span translate="section-focus.intro"></span></h1>
+        <div class="text-center col-sm-4" ng-repeat="myFocus in myFocuses">
+
+          <div style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(/assets/images/bg-red.jpg); min-height: 420px;" class="grow thumbnail">
+            <md-content class="{{myFocus.color}} md-padding pull-center">
+              <h2 class="" style="color:{{myFocus.color}};"><span translate="{{myFocus.header}}"></span></h2>
+            </md-content>
+
+            <div style="padding:5px 0 0 0; color:white;" class="hi-icon-wrap hi-icon-effect-8 ">
+              <a href="{{myFocus.url}}" class="{{myFocus.icon}}"><span translate="section-focus.title"></span></a>
+            </div>
+
+            <div style="min-height:120px;">
+              <p style="color: #ccc; font-weight: 500; padding: 10px;"><span translate="{{myFocus.description}}"></span></p>
+            </div>
+            <div style="margin-bottom: 30px;">
+              <md-button
+                ng-controller="MainCtrl"
+                href=""
+                ng-click="toSectionServices()"
+                aria-label="Focus"
+                class="{{myFocus.material}}"
+                style="width: 160px; border:solid 2px {{myFocus.color}}; color:{{myFocus.color}}; padding: 10px; touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                <span translate="global.action.findOutMore"></span>
+              </md-button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<div ng-controller="OurWorkCtrl">
+  <div class="row section-ourwork">
+    <div class="text-center col-xs-12">
+      <div>
+        <h1 class="text-center" style="font-size: 4rem; color: white;"><span translate="section-ourWork.slogan"></span></h1>
+      </div>
+      <md-toolbar class="hidden-xs" md-theme="purple">
+        <div class="md-toolbar-tools">
+          <i style="font-size: 2.4em" class="mdi-maps-local-library"></i>
+          <md-button aria-label="Our Work" href="#section">
+            <span translate="section-ourWork.title"></span>
+          </md-button>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+
+        </div>
+      </md-toolbar>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h1>A mint of Creativity</h1>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin: auto; padding-top: 20px; width:100%;">
+
+        <div class="col-sm-6 col-md-4" ng-repeat="myOurWork in myOurWorks">
+          <br>
+          <div style="background-size: 100% auto; min-height: 250px;" class="grow thumbnail">
+            <img class="pull-right" ng-src="assets/images/{{myOurWork.logo}}" alt="{{myOurWork.title}}">
+            <div class="caption">
+              <h4>{{myOurWork.title}}</h4>
+              <p>{{myOurWork.description}}</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-10 col-xs-offset-1">
+                <em><p class="text-right"><a ng-href="{{myOurWork.url}}">Find Out More</a></p></em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

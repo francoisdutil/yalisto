@@ -1,0 +1,69 @@
+
+<div class="hidden alert alert-warning" role="alert" ng-show="ngCart.totalItems() === 0">
+  <span translate="global.label.cart.empty"></span>
+</div>
+
+<div id="viewcart" class="table-responsive col-lg-12" ng-show="ngCart.totalItems() > 0">
+    <h1 ng-show="ngCart.totalItems() == 1" class="text-center">
+      <span translate="global.label.cart.thisServiceSelected"></span>
+    </h1>
+    <h1 ng-show="ngCart.totalItems() > 1" class="text-center">
+      <span translate="global.label.cart.theseAre"></span> {{ngCart.totalItems()}} <span translate="global.label.cart.servicesSelected"></span>
+    </h1>
+    <table class="table table-striped ngCart cart">
+
+        <thead>
+        <tr class="text-left">
+            <th></th>
+            <th><span translate="global.label.name"></span></th>
+            <th><span translate="global.label.description"></span></th>
+            <th><span translate="global.label.daysWork"></span></th>
+            <th><span translate="global.label.priceStartingFrom"></span></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr ng-show="ngCart.getTax()">
+            <th></th>
+            <th>Name</th>
+            <th></th>
+            <th>Tax ({{ ngCart.getCart().tax }}%):</th>
+            <th>{{ ngCart.getTax() | currency }}</th>
+        </tr>
+        <tr ng-show="ngCart.getShipping()">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Shipping:</th>
+            <th>{{ ngCart.getShipping() | currency }}</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr class="text-left" ng-repeat="item in ngCart.getCart().items track by $index">
+            <td><span ng-click="ngCart.removeItem($index)" class="glyphicon glyphicon-remove"></span></td>
+            <td><span translate="{{ item.getName() }}"></span></td>
+            <td><span translate="{{ item.getData().description }}"></span></td>
+            <td>{{ item.getData().devDays }} </td>
+            <td>{{ item.getPrice() | currency}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+
+      <div ng-show="checkout">
+        <h4>Results of ngCart.toObject()</h4>
+        <div class="col-md-12"> <em role="alert"><span class="glyphicon glyphicon-thumbs-up"></span> See your console to browse</em></div>
+        <pre>{{ checkout | json}}</pre>
+      </div>
+
+
+    </div>
+
+</div>
+<style>
+    .ngCart.cart span[ng-click] {
+        cursor: pointer;
+    }
+    .ngCart.cart .glyphicon.disabled {
+        color:#aaa;
+    }
+</style>

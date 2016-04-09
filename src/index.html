@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" ng-app="yalistoOrg">
+  <head>
+    <meta charset="utf-8">
+    <title>yalistoOrg</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp,src}) styles/vendor.css -->
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/amber-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/brown-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/orange-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/red-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/blue-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/green-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/light-green-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/deep-orange-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/indigo-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/purple-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/deep-purple-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/cyan-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/teal-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/yellow-theme.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/themes/blue-grey-theme.css">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/material.css" />
+    <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/ripples.css" />
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="../bower_components/ngDialog/css/ngDialog.css" />
+    <link rel="stylesheet" href="../bower_components/ngDialog/css/ngDialog-theme-default.css" />
+    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.css" />
+    <link rel="stylesheet" href="../bower_components/angular-gantt/assets/angular-gantt.css" />
+    <link rel="stylesheet" href="../bower_components/angular-gantt/assets/angular-gantt-plugins.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+    <!-- build:css({.tmp,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/index.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+    <SCRIPT LANGUAGE=JavaScript>
+      function now(){
+        window.location.reload(true);
+      }
+    </SCRIPT>
+  </head>
+  <body style="padding:0; margin:0;">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div ui-view></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-40471247-2');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/hammerjs/hammer.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="../bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script src="../bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.js"></script>
+    <script src="../bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="../bower_components/ngDialog/js/ngDialog.js"></script>
+    <script src="../bower_components/ngcart/dist/ngCart.js"></script>
+    <script src="../bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="../bower_components/sifter/sifter.js"></script>
+    <script src="../bower_components/microplugin/src/microplugin.js"></script>
+    <script src="../bower_components/selectize/dist/js/selectize.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/angular-moment/angular-moment.js"></script>
+    <script src="../bower_components/angular-gantt/assets/angular-gantt.js"></script>
+    <script src="../bower_components/angular-gantt/assets/angular-gantt-plugins.js"></script>
+    <script src="../bower_components/angular-native-dragdrop/draganddrop.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/index.js"></script>
+    <script src="components/services/controllers/websiteDevelopment.controller.js"></script>
+    <script src="components/slideshow/slideshow.controller.js"></script>
+    <script src="components/services/services.controller.js"></script>
+    <script src="components/services/service-category.filter.js"></script>
+    <script src="components/services/props.filter.js"></script>
+    <script src="components/searchBar/searchBar.controller.js"></script>
+    <script src="components/quote/quote.controller.js"></script>
+    <script src="components/products/products.controller.js"></script>
+    <script src="components/ourwork/ourwork.controller.js"></script>
+    <script src="components/navbar/navbar.controller.js"></script>
+    <script src="components/mobile/mobile.controller.js"></script>
+    <script src="components/footer/footer.controller.js"></script>
+    <script src="components/footer/bottomsheet.controller.js"></script>
+    <script src="components/focus/focus.controller.js"></script>
+    <script src="components/focus/dialog.controller.js"></script>
+    <script src="components/feature/feature.controller.js"></script>
+    <script src="components/contact/contact.controller.js"></script>
+    <script src="app/main/main.directives.js"></script>
+    <script src="app/main/main.controller.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automaticaly converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>

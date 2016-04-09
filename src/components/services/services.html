@@ -1,0 +1,182 @@
+<section ng-controller="ServicesCtrl">
+  <div class="section-services">
+    <md-toolbar md-theme="orange">
+      <div class="md-toolbar-tools" style="margin: 10px 0 -20px 0; padding:0; height: 70px;">
+        <i style="opacity: .75; font-size: 3.4em" class="retro mdi-action-wallet-giftcard">&nbsp;<span translate="section-services.title"></span></i>
+      </div>
+      <h1 class="text-center" style="font-size: 4rem;"></h1>
+    </md-toolbar>
+    <h1 class="retro1 text-center" style=" color: #e58704; font-weight: 700;"><span translate="section-services.slogan"></span></h1>
+
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-10 col-xs-offset-1 text-center">
+        <h2><em><span translate="section-services.quote"></span></em></h2>
+        <span class="label label-info"></span>
+        <h1 ng-if="(services|filter:query | filter:serviceCategory:selectedServiceCategory).length == services.length">
+          <span translate="global.label.listOf"></span>
+
+          <span class="label label-info">{{(services|filter:query | filter:serviceCategory:selectedServiceCategory).length}}</span>
+          <span translate="global.label.servicesOffered"></span>
+        </h1>
+        <h1 ng-if="(services|filter:query | filter:serviceCategory:selectedServiceCategory).length < services.length">
+          <span translate="global.label.listFilteredOf"></span>
+          <span class="label label-info" style="font-color:#000" >{{(services|filter:query  | filter:serviceCategory:selectedServiceCategory).length}}</span>
+          <span translate="global.label.servicesAvailable"></span>
+        </h1>
+
+      </div>
+    </div>
+
+    <div class="hidden row">
+      <div class="text-center col-xs-12">
+
+        <p class="text-center">
+          <button style="font-weight: 400; height: 36px; padding: 0 10px;" class="btn btn-info" data-ng-click="isCollapsed = !isCollapsed">
+            <span class="glyphicon glyphicon-filter"></span>
+            <span translate="global.action.toggle"></span> <span translate="global.action.filterPannel"></span>
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <div class="hidden row" collapse="isCollapsed">
+      <div class="input-medium well well-xs text-center col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-md-offset-1">
+          <div class="row" style="margin-left:5px;">
+            <div id="slider-container" class="text-center col-md-6 col-sm-6">
+              <em>
+                <h2 class="text-center">
+                  <span class="glyphicon glyphicon-filter"></span>
+                  <span translate="global.action.filterByCategory"></span>
+                </h2>
+              </em>
+
+
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="form-group">
+                    <label>
+                      <span translate="section-services.category.selectedCategories"></span>: {{multipleDemo.selectedCategories.length}}
+                    </label>
+                    <ui-select multiple ng-model="multipleDemo.selectedCategories" theme="bootstrap" ng-disabled="disabled" close-on-select="false">
+                      <ui-select-match placeholder="{{'section-services.category.selectCategory' | translate }}">{{$item.name | translate }}</ui-select-match>
+                      <ui-select-choices repeat="cat in categoryList  | propsFilter: {name: $select.search}">
+                        <div ng-bind-html="'' | highlight: $select.search"></div>
+                        <span class="label">{{cat.name | translate}}</span>
+                      </ui-select-choices>
+                    </ui-select>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+
+            <div id="slider-container" class="text-center col-md-6 col-sm-6">
+              <div class="row">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <div>
+                    <em>
+                      <h2 class="text-center">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        <span ng-if="values.low > 0 && values.high > values.low"> <span translate="global.label.upto"></span> {{values.high}}</span>
+                        <span translate="global.label.daysWork"></span>
+                      </h2>
+                    </em>
+                    <span class="text-left">min</span>
+                    <md-slider
+                    md-theme="teal"
+                    ng-model="values.low"
+                    step="{{ step }}"
+                    min="{{ floor }}"
+                    max="{{ ceiling }}"
+                    aria-label="min">
+                    </md-slider>
+                    <span class="text-left">max</span>
+                    <md-slider
+                    md-theme="teal"
+                    ng-model="values.high"
+                    step="{{ step }}"
+                    min="{{ floor }}"
+                    max="{{ ceiling }}"
+                    aria-label="max">
+                  </md-slider>
+                  <p ng-if="values.low > 0 && values.high > values.low" class="lead text-center">
+                    <span translate="global.label.availableServicesBetween"></span>
+                    {{values.low}}
+                    <span translate="global.label.and"></span> {{values.high}}
+                    <span translate="global.label.daysUntilDelivery"></span>)
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center">
+      <input style="margin-top: 20px; font-weight: 500; height: 36px;" ng-model="query" type="text" class="text-center input-medium search-query" placeholder="{{'global.action.search' | translate}}" autofocus />
+    </p>
+
+
+    <div class="row text-center" style="margin: 0; width: 100%;">
+
+      <div class="text-center col-sm-4" ng-repeat="service in services| filter: query | filter:serviceCategory:selectedServiceCategory | orderBy:'rank'">
+        <div class="scale-fade grow thumbnail">
+          <img class="pull-right" ng-src="assets/images/{{service.logo}}" alt="{{service.name}}" />
+          <div class="caption">
+            <h3 class="text-center"><span translate={{service.name}}></span></h3>
+            <p><span translate={{service.description}}></span></p>
+            <md-button
+            class="md-hue-3 md-primary"
+            ng-controller="ServicesCtrl"
+            ng-click="openServiceDetail()"
+            aria-label="service">
+            <span translate={{service.action}}></span>
+          </md-button>
+          <ngcart-addtocart id="{{ service.id }}" name="{{ service.name }}" price="{{ service.price }}" data="service">+</ngcart-addtocart>
+
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 70px; width:100%;">
+        <div style="padding-top: 75px;" id="cart" class="well col-sm-10 col-sm-offset-1">
+          <ngcart-cart></ngcart-cart>
+          <div class="row">
+            <div class="text-center col-sm-10 col-sm-offset-1">
+              <ngcart-summary class="text-right"></ngcart-summary>
+            </div>
+          </div>
+          <div style="margin-bottom: 30px;">
+            <button
+              ng-controller="MainCtrl"
+              href=""
+              ng-click="toSectionServices()"
+              aria-label="print"
+              class="btn btn-large btn-primary md-orange-theme md-hue-3"
+              style="padding: 10px; touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+              <span translate="global.action.saveWishlist"></span>
+            </button>
+            <button
+              ng-controller="MainCtrl"
+              href=""
+              ng-click="toSectionServices()"
+              aria-label="print"
+              class="btn btn-large btn-primary md-orange-theme md-hue-3"
+              style="padding: 10px; touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+              <span translate="global.action.printList"></span>
+            </button>
+            <button
+              ng-controller="MainCtrl"
+              href=""
+              ng-click="toSectionServices()"
+              aria-label="print"
+              class="btn btn-large btn-primary md-orange-theme md-hue-3"
+              style="padding: 10px; touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+              <span translate="global.action.sendToUs"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

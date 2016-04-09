@@ -1,0 +1,81 @@
+<div animated fadeIn scroll ng-class="{min:boolChangeClass}" ng-init="changeLanguage('en')" ng-controller="MainCtrl" layout="column" class="wrap">
+
+  <nav style="margin-bottom: 0;" class="navbar-fixed-top navbar-material-default">
+
+    <div layout="vertical" layout-sm="horizontal" layout-align="center center" class="navbar-header">
+      <md-button href="/#/" aria-label="Brand">
+        <a name="section-feature" class="navbar-brand" ng-click="toTheTop()">
+          <img class="img-circle" style="width:46px;" src="/assets/images/yalisto.svg" />
+        </a>
+
+      </md-button>
+      <md-button style="vertical-align: middle; padding-top:20px; color:#A4421F; font-weight: 500; font-size: 1.4em;" class="" aria-label="Top" ng-href="/#/" ng-click="toTheTop()">yalisto
+      </md-button>
+      <ul style="padding-bottom: 0; margin-left: -10px; margin-top: 13px;" class="text-center">
+        <li class="dropdown">
+          <a style="color:#999" href="javascript:void(0)" class="shadow-radial dropdown-toggle" data-toggle="dropdown">{{lang}}<b class=""></b><div class="ripple-wrapper"></div></a>
+          <ul style="margin-left: 10px; width: 164px" class="dropdown-menu">
+            <li ng-repeat="lang in langMenu">
+              <a ng-click="changeLanguage(&apos;{{lang.countryCode}}&apos;)" href="javascript:void(0)">{{lang.countryCode}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <ul class="pull-center text-center">
+      <li class="grow" ng-repeat="item in mySections">
+        <md-button href="/#/#{{item.id}}" class="grow" aria-label={{item.title}}>
+          <a class="{{item.class}}" name="{{item.id}}" href="/#/#{{item.id}}" du-smooth-scroll du-scrollspy>
+            <span class="hidden-xs"><span translate="global.menu.{{item.title}}"></span></span>
+            <i class="{{item.icon}}"></i>
+          </a>
+        </md-button>
+      </li>
+      <li class="text-right">
+        <a ng-show={{addedItems}} ng-href="/#/#cart" style="color: blue; padding: 5px 0 0 0; width:150px">
+          <ngcart-summary></ngcart-summary>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="{{item.id}}" class="bottom-shadow" ng-repeat="item in mySections">
+
+    <div ng-include="item.template"></div>
+
+  </section>
+
+  <footer style="position: fixed; z-index: 99999" ng-controller="FooterCtrl">
+    <md-content class="md-orange-theme">
+      <md-toolbar style="min-height: 64px; max-height:64px;" layout="column">
+        <h1 id="logo" class="md-toolbar-tools" flex layout="column">
+          <a href="" ng-click="goHome()" layout="row" flex>
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="45" height="45">
+              <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+              <g>
+                <title>yalisto</title>
+                <text opacity="0.55" stroke="#000000" transform="rotate(10.446211814880371 19.94942283630374,23.45379257202148) matrix(2.3398442070958727,0,0,1.2380148943329738,-106.95056444178476,-62.32709980846471) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_1" y="77.573118" x="54.233542" stroke-width="0" fill="#007f7f">Y</text>
+              </g>
+            </svg>
+          <div flex style="line-height:40px; text-indent: 15px;">YALISTO</div>
+        </a>
+      </h1>
+    </md-toolbar>
+      <md-toolbar md-theme="brown" class="md-tall md-accent">
+        <div class="bottom-sheet-demo inset" layout="column" layout-sm="row" layout-align="center">
+          <div style="width:50px;"></div>
+          <md-button aria-label="demo" class="md-primary" ng-click="showGridBottomSheet($event)">
+            Show more footer
+          </md-button>
+        </div>
+        <br/>
+        <b layout="row" layout-align="center center" layout-margin>
+          {{alert}}
+        </b>
+      </md-toolbar>
+    </md-content>
+  </footer>
+</div>
